@@ -1,0 +1,8 @@
+version: '3.2'
+services:
+  web:
+    ports:
+      - 5000:4000
+  db:
+    ports:
+      - 5462:5432
