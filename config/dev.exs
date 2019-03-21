@@ -37,7 +37,7 @@ config :mvp_elixir, MvpElixirWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/mvp_elixir_web/views/.*(ex)$},
-      ~r{lib/mvp_elixir_web/templates/.*(eex)$}
+      ~r{lib/mvp_elixir_web/templates/.*(eex|slim)$}
     ]
   ]
 
