@@ -5,7 +5,7 @@ defmodule MvpElixir.Mixfile do
     [
       app: :mvp_elixir,
       version: "0.0.1",
-      elixir: "~> 1.4",
+      elixir: "~> 1.8",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -20,7 +20,7 @@ defmodule MvpElixir.Mixfile do
   def application do
     [
       mod: {MvpElixir.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:httpoison, :timex_ecto, :logger, :runtime_tools]
     ]
   end
 
@@ -33,16 +33,26 @@ defmodule MvpElixir.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.4"},
+      {:phoenix, "~> 1.4.2", override: true},
       {:phoenix_slime, "~> 0.10.0"},
-      {:phoenix_pubsub, "~> 1.0"},
+      {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.10"},
+      {:mariaex, ">= 0.0.0"},
+      {:phoenix_html, "~> 2.13"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
+      {:httpoison, "~> 1.0"},
+      {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:plug_cowboy, "~> 1.0"},
+      {:guardian, "~> 1.0"},
+      {:comeonin, "~> 4.0"},
+      {:bcrypt_elixir, "~> 1.0"},
+      {:bodyguard, "~> 2.2"},
+      {:timex, "~> 3.0"},
+      {:timex_ecto, "~> 3.0"},
+      {:ecto_enum, "~> 1.0"},
     ]
   end
 
@@ -56,7 +66,7 @@ defmodule MvpElixir.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end

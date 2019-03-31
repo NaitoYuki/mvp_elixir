@@ -2,17 +2,43 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "deploy": "brunch build --production",
-    "watch": "brunch watch --stdin"
+    "deploy": "webpack --mode production",
+    "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "phoenix": "file:../deps/phoenix",
-    "phoenix_html": "file:../deps/phoenix_html"
+    "@coreui/coreui": "^2.1.9",
+    "bootstrap4-tagsinput-douglasanpa": "^4.1.2",
+    "flatpickr": "^4.5.7",
+    "jquery": "^3.3.1",
+    "jquery-easing": "^0.0.1",
+    "lodash": "^4.17.11",
+    "lodash.uniqwith": "^4.5.0",
+    "moment": "^2.24.0",
+    "perfect-scrollbar": "^1.4.0",
+    "popper.js": "^1.14.7",
+    "selectize": "^0.12.6",
+    "swiper": "^4.5.0",
+    "util": "^0.11.1"
   },
   "devDependencies": {
-    "babel-brunch": "6.1.1",
-    "brunch": "2.10.9",
-    "clean-css-brunch": "2.10.0",
-    "uglify-js-brunch": "2.10.0"
+    "autoprefixer": "^9.5.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "barba.js": "^1.0.0",
+    "copy-webpack-plugin": "^5.0.2",
+    "css-loader": "^2.1.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "node-sass-glob-importer": "^5.3.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "4.29.6",
+    "webpack-cli": "^3.2.0"
   }
 }

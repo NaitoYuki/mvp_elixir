@@ -7,11 +7,19 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :mvp_elixir, MvpElixirWeb.Endpoint,
-  http: [port: 4000],
+  http: [
+    port: 4000,
+    protocol_options: [
+      max_header_name_length: 64,
+      max_header_value_length: 40960,
+      max_headers: 100,
+      max_request_line_length: 80960
+    ]
+  ],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
+  watchers: [node: ["node_modules/webpack/bin/webpack.js", "--mode", "development", "--watch-stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
 # ## SSL Support
@@ -48,6 +56,9 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
+# Initialize plugs at runtime for faster development compilation
+config :phoenix, :plug_init_mode, :runtime
+
 # Configure your database
 config :mvp_elixir, MvpElixir.Repo,
   adapter: Ecto.Adapters.Postgres,
@@ -56,3 +67,7 @@ config :mvp_elixir, MvpElixir.Repo,
   database: "mvp_elixir_dev",
   hostname: "db",
   pool_size: 10
+
+# Configure guardian
+config :mvp_elixir, MvpElixir.Admin.Guardian,
+  secret_key: "gKeSu0dhoWUtC4nNI6J0XLHmZuqSqc8ahCMrm14SPK/8hrhwkLunjVk438PqCDOu"

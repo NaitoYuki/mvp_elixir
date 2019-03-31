@@ -1,0 +1,36 @@
+@import '~bootstrap4-tagsinput-douglasanpa/tagsinput';
+@import '~@coreui/coreui/scss/coreui';
+@import '~selectize/dist/css/selectize.bootstrap3';
+@import '~flatpickr/dist/flatpickr';
+
+.flash {
+  &-notice {
+    @extend .alert;
+    @extend .alert-success;
+    display: none;
+  }
+  &-alert {
+    @extend .alert;
+    @extend .alert-danger;
+    display: none;
+  }
+}
+
+.help-block {
+  @extend .text-danger;
+}
+
+.ellipsis {
+  max-width: 20em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flatpickr-input {
+  background-color: white !important;
+}
+
+.tooltip-inner {
+  text-align: left;
+}

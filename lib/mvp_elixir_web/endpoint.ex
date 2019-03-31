@@ -1,7 +1,9 @@
 defmodule MvpElixirWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :mvp_elixir
 
-  socket "/socket", MvpElixirWeb.UserSocket
+  socket "/socket", MvpElixirWeb.UserSocket,
+    websocket: true,
+    longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -19,12 +21,13 @@ defmodule MvpElixirWeb.Endpoint do
     plug Phoenix.CodeReloader
   end
 
+  plug Plug.RequestId
   plug Plug.Logger
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Phoenix.json_library()
 
   plug Plug.MethodOverride
   plug Plug.Head

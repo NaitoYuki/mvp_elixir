@@ -1,20 +1,40 @@
-# MvpElixir
+# 開発環境
 
-To start your Phoenix server:
+## 必要なツール
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+Docker for Mac / Windows
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## セットアップ
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+```sh
+$ docker-compose build
+$ commands/setup.sh
+```
 
-## Learn more
+## 実行
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+```sh
+$ docker-compose up web
+```
+
+http://localhost:5000
+
+### 稼働中のコンテナのシェルに接続
+
+```sh
+$ docker-compose exec web bash
+```
+
+## パッケージマネージャ操作（例）
+
+`mix deps.get`
+
+```sh
+$ commands/mix.sh deps.get
+```
+
+`npm install`
+
+```sh
+$ commands/npm.sh install
+```
